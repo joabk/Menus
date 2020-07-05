@@ -133,14 +133,17 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     public boolean onMenuItemClick(MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.popupMenu1:
-                Toast.makeText(this, "Popup Menu 1 Clicked", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Popup Menu 1 Clicked", Toast.LENGTH_SHORT).show();
+                return true;
             case R.id.popupMenu2:
-                Toast.makeText(this, "Popup Menu 2 Clicked", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Popup Menu 2 Clicked", Toast.LENGTH_SHORT).show();
+                return true;
             case R.id.popupMenu3:
-                Toast.makeText(this, "Popup Menu 3 Clicked", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Popup Menu 3 Clicked", Toast.LENGTH_SHORT).show();
+                return true;
             default:
+                Toast.makeText(this, "No button clicked", Toast.LENGTH_SHORT).show();
                 return false;
-
         }
     }
 }
