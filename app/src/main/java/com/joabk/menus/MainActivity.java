@@ -11,11 +11,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     ActionMode mActionMode;
 
@@ -119,5 +120,27 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    public void showPopupMenu(View view) {
+        PopupMenu popup = new PopupMenu(this,view);
+        popup.setOnMenuItemClickListener(this);
+        popup.inflate(R.menu.popup_menu);
+        popup.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        switch (menuItem.getItemId()){
+            case R.id.popupMenu1:
+                Toast.makeText(this, "Popup Menu 1 Clicked", Toast.LENGTH_SHORT);
+            case R.id.popupMenu2:
+                Toast.makeText(this, "Popup Menu 2 Clicked", Toast.LENGTH_SHORT);
+            case R.id.popupMenu3:
+                Toast.makeText(this, "Popup Menu 3 Clicked", Toast.LENGTH_SHORT);
+            default:
+                return false;
+
+        }
     }
 }
